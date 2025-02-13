@@ -30,19 +30,44 @@ backdrop.addEventListener("click", (event) => {
  }
 });
 // Task 3
-const haveInput1 = document.querySelector("#red");
-const haveInput2 = document.querySelector("#blue");
-const haveInput3 = document.querySelector("#green");
+const input1 = document.querySelector("#red");
+const input2 = document.querySelector("#blue");
+const input3 = document.querySelector("#green");
 
 
-haveInput1.addEventListener("click", (event) => {
+input1.addEventListener("click", (event) => {
   getBody.style.backgroundColor = "red";
 });
 
-haveInput2.addEventListener("click", (event) => {
+input2.addEventListener("click", (event) => {
   getBody.style.backgroundColor = "blue";
 });
 
-haveInput3.addEventListener("click", (event) => {
+input3.addEventListener("click", (event) => {
   getBody.style.backgroundColor = "green";
+});
+// Task 4
+const inpElem = document.querySelector("#name-input");
+const spanElem = document.querySelector("#name-output");
+inpElem.addEventListener("input", (event) => {
+    spanElem.textContent = event.target.value || "незнайомець";
+});
+
+const validInp = document.querySelector("#validation-input");
+const attributeLength = Number(validInp.getAttribute("data-length"))
+validInp.addEventListener("blur", (event) => { 
+  if (validInp.value.length === attributeLength) {
+    validInp.classList.add("valid");
+    validInp.classList.remove("invalid");
+  } else {
+    validInp.classList.add("invalid");
+    validInp.classList.remove("valid");
+  }
+});
+// Task 5
+const fontSizeControl = document.querySelector("#font-size-control");
+const text = document.querySelector("#text");
+
+fontSizeControl.addEventListener("input", (event) => {
+  text.style.fontSize = fontSizeControl.value + "px";
 });
